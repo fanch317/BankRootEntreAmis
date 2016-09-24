@@ -1,6 +1,6 @@
 angular.module('bankroot', ['ionic'])
 
-    .controller('AppCtrl', function ($log, $scope, $ionicModal, $timeout, $rootScope, Storage) {
+    .controller('AppCtrl', function ($log, $scope, $ionicModal, $timeout, $rootScope, $state, $ionicHistory, Storage) {
 
         // With the new view caching in Ionic, Controllers are only called
         // when they are recreated or on app start, instead of every page change.
@@ -43,6 +43,20 @@ angular.module('bankroot', ['ionic'])
             $timeout(function () {
                 $scope.closeLogin();
             }, 1000);
+        };
+
+        $scope.openProject = function(projectId) {
+            var project = Storage.getProject(projectId);
+            $log.debug(project.getMembers());
+            if( project !== undefined && project.getMembers() !== undefined ) {
+                //Open project expenses
+                $ionicHistory.nextViewOptions({disableBack: true});
+                $state.go('app.projectexpenses', {projectId: projectId}, {reload: true});
+            }else{
+                //The project has no member ! Go to edit page
+                $ionicHistory.nextViewOptions({disableBack: true});
+                $state.go('app.projectedit', {projectId: projectId}, {reload: true});
+            }
         };
 
     });

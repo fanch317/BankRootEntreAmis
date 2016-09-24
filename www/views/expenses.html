@@ -5,9 +5,18 @@
       <li><a ng-click="editExpense(expenseId)">{{expense.title}} - {{expense.date | date:'medium'}}</a> <a ng-click="deleteExpense(expenseId)">X</a></a></li>
     </ul>
 
-      <button class="button"  ng-click="back()">
-          Annuler
+    <div>
+      <button class="button" ng-show="projectId !== undefined" ng-click="addExpense()">
+        Ajouter Une Dépense
       </button>
+    </div>
+
+    <div>
+      <button class="button"  ng-click="back()">
+          Options
+      </button>
+    </div>
+
 
   </ion-content>
 </ion-view>

@@ -21,6 +21,14 @@ angular.module('bankroot')
             }
         }
 
+        // Add Participant to theproject
+        $scope.addExpense = function () {
+
+            $ionicHistory.nextViewOptions({disableBack: true});
+            $state.go('app.projectnewexpense', {projectId: $scope.projectId}, {reload: true});
+
+        };
+
 
         $scope.back = function(){
 

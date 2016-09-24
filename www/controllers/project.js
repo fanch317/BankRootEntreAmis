@@ -88,7 +88,7 @@ angular.module('bankroot')
 
             $log.debug('addMember..');
 
-            $scope.project.addMember(new Member( {name: 'Nom ?', defaultShare: 1} ) );
+            $scope.project.addMember(new Member( {name: '', defaultShare: 1} ) );
 
             $scope.memberName = '';
             $scope.memberShare = 1;
@@ -105,14 +105,6 @@ angular.module('bankroot')
             $scope.project.removeMemberId(memberId);
 
             Storage.save();
-
-        };
-
-        // Add Participant to theproject
-        $scope.addExpense = function () {
-
-            $ionicHistory.nextViewOptions({disableBack: true});
-            $state.go('app.projectnewexpense', {projectId: $scope.projectId}, {reload: true});
 
         };
 

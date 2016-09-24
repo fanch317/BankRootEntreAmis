@@ -44,6 +44,9 @@
 
         };
 
+        Project.prototype.getMembers = function () {
+            return this.members;
+        };
 
         Project.prototype.addMember = function (member) {
             this.members[this.memberId] = member;

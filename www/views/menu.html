@@ -21,7 +21,7 @@
         <ion-item menu-close ng-click="login()" ng-show="false">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/project/{{projectId}}/edit" ng-repeat="(projectId, project) in projects">
+        <ion-item menu-close ng-click="openProject(projectId)" ng-repeat="(projectId, project) in projects">
           {{project.name}}
         </ion-item>
         <ion-item menu-close href="#/app/project/new">

@@ -44,13 +44,8 @@ angular.module('bankroot')
 
             $log.debug('back');
 
-            if ($stateParams.expenseId === undefined) {
-                $ionicHistory.nextViewOptions({disableBack: true});
-                $state.go('app.projectedit', {projectId: $scope.projectId}, {reload: true});
-            } else {
                 $ionicHistory.nextViewOptions({disableBack: true});
                 $state.go('app.projectexpenses', {projectId: $scope.projectId}, {reload: true});
-            }
 
         };
 
